@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+
+	<context:component-scan base-package="com.jdc.demo"></context:component-scan>
+	<bean id="aspectBean" class="com.jdc.demo.aspects.DemoAspect"></bean>
+	<aop:config proxy-target-class="true">
+		<aop:pointcut expression="@within(com.jdc.demo.LoggerBean) and execution(* *(..)))"
+			id="aspectPointcut" />
+		<aop:aspect id="aspectMethod" ref="aspectBean">
+			<aop:before method="doBefore" pointcut-ref="aspectPointcut" />
+		</aop:aspect>
+	</aop:config>
+</beans>

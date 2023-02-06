@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+	<context:component-scan
+		base-package="com.jdc.demo.services, com.jdc.demo.repo"></context:component-scan>
+
+	<bean id="methodAspectBean"
+		class="com.jdc.demo.aspects.MethodAccessAspects">
+	</bean>
+
+	<aop:config>
+		<aop:pointcut
+			expression="execution(public * com.jdc.demo.services.*.*(..)) and args(names)"
+			id="methodAccessPointcut" />
+		<aop:aspect id="methodAspect" ref="methodAspectBean">
+			
+			
+		<aop:before method="beforeExecution"
+			arg-names="names" pointcut-ref="methodAccessPointcut" />
+		<aop:after-returning method="afterExecution"
+			pointcut="execution(public * com.jdc.demo.services.*.*(..))"
+			returning="student" />
+		
+		<aop:after-throwing method="afterThrowing"
+			pointcut="execution(public * com.jdc.demo.services.*.*(..))"
+			throwing="exception" />
+		</aop:aspect>
+
+	</aop:config>
+</beans>
