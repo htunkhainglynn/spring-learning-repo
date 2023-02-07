@@ -1,0 +1,21 @@
+package com.jdc.test;
+
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
+
+@SpringJUnitConfig(locations = "/context.xml")
+@TestMethodOrder(OrderAnnotation.class)
+@PropertySource("/sql.properties")
+public class StatementTest {
+
+	@Test
+	@Order(1)
+	void test(@Value("${mamber.insert}") String sql) {
+		System.out.println(sql);
+	}
+}

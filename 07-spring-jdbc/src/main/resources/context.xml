@@ -6,11 +6,12 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<context:property-placeholder
-		location="/database.properties" />
+		location="/database.properties, /sql.properties" />
 
+	<!-- do not need all are in appConfig -->
+	<!--  
 	<bean name="dataSource"
 		class="com.mysql.cj.jdbc.MysqlConnectionPoolDataSource">
-		<!--name must same with MysqlConnectionPoolDataSource -->
 		<property name="url" value="${db.url}"></property>
 		<property name="user" value="${db.user}"></property>
 		<property name="password" value="${db.password}"></property>
@@ -22,4 +23,5 @@
 	</bean>
 	<context:component-scan
 		base-package="com.jdc.demo"></context:component-scan>
+	-->
 </beans>
