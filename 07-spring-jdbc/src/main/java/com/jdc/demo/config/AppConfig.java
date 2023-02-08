@@ -69,13 +69,18 @@ public class AppConfig {
 	}
 	
 	@Bean
-	@Qualifier("searchAdminFactory")
-	public PreparedStatementCreatorFactory searchAdminFactory(@Value("${member.search.admin}") String sql) { 
+	@Qualifier("searchNameFactory")
+	public PreparedStatementCreatorFactory searchNameFactory(@Value("${member.search.name}") String sql) { 
 		return new PreparedStatementCreatorFactory(sql, new int[] {
-				Types.VARCHAR // you can insert integer like this {12, 12, 12, 12, 12} 12 represents VARCHAR
-
+				Types.VARCHAR  // you can insert integer like this {12, 12, 12, 12, 12} 12 represents VARCHAR
 		});
 	}
 	
-	
+	@Bean
+	@Qualifier("searchPKFactory")
+	public PreparedStatementCreatorFactory searchPKFactory(@Value("${member.serach.pk}") String sql) { 
+		return new PreparedStatementCreatorFactory(sql, new int[] {
+				Types.VARCHAR  // you can insert integer like this {12, 12, 12, 12, 12} 12 represents VARCHAR
+		});
+	}
 }

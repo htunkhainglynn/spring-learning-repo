@@ -1,6 +1,7 @@
 package com.jdc.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.util.List;
 
@@ -19,6 +20,7 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import com.jdc.demo.config.AppConfig;
+import com.jdc.demo.dao.MemberRowMap;
 import com.jdc.demo.dto.Member;
 
 
@@ -29,10 +31,13 @@ public class StatementTest {
 	@Autowired
 	JdbcOperations dbOperation;
 	
+	@Autowired
+	MemberRowMap memberRowMap;
+	
 
 	@Test
 	@Order(1)
-	@DisplayName("test PreparedStatementCreator psc, PreparedStatementCallback<T> action")
+	@DisplayName("Execute With Creator for Insert Statement")
 	@Sql(scripts = "/database.sql")
 	void test(@Value("${member.insert}") String sql) {
 		PreparedStatementCreator creator = conn -> {
@@ -51,7 +56,7 @@ public class StatementTest {
 	
 	@Test
 	@Order(2)
-	@DisplayName("test PreparedStatementCreatorFactory(String sql, int... types)")
+	@DisplayName("Update With Creator")
 	void test1(@Qualifier("insertFactory") PreparedStatementCreatorFactory factory) {  // dependency injection
 		var creator = factory.newPreparedStatementCreator(List.of(
 					"member", "member", "hkl", "123", "aaa"
@@ -63,11 +68,11 @@ public class StatementTest {
 	
 	@Test
 	@Order(3)
-	@DisplayName("test select with PreparedStatementCreatorFactory(String sql, int... types)")
-	void test2(@Qualifier("searchAdminFactory") PreparedStatementCreatorFactory factory) {
-		var creator = factory.newPreparedStatementCreator(List.of("admin"));
+	@DisplayName("Execute With Creator for Select Statement [Ok if the result is list]")
+	void test2(@Qualifier("searchNameFactory") PreparedStatementCreatorFactory factory) {
+		var creator = factory.newPreparedStatementCreator(List.of("%k%"));
 		
-		List<Member> list = dbOperation.query(creator, (rs, n) -> {  // check in MemberDaoTest
+		List<Member> list = dbOperation.query(creator, (rs, n) -> {  // return List<T>
 			Member m = new Member();
 			m.setLoginId(rs.getString("loginId"));
 			m.setPassword(rs.getString("password"));
@@ -80,25 +85,23 @@ public class StatementTest {
 		System.out.println(list);
 		
 	}
+	
+	@Test
+	@Order(4)
+	@DisplayName("Execute With Creator for Select Statement using PK [Ok if the result is just one row]")
+	// It is not Okay if the result is list, just one like using PK
+	void test3(@Qualifier("searchPKFactory") PreparedStatementCreatorFactory factory) {
+		var creator = factory.newPreparedStatementCreator(List.of("admin")); 
+		
+		var result = dbOperation.query(creator, rs -> {  // return T
+			while (rs.next()) {
+				return memberRowMap.mapRow(rs, 1);  //  return just Member( My custom RowMapper)
+			}
+			return null;
+		});
+		
+		assertNotNull(result);
+		assertEquals(result.getName(), "hkl");
+	}
+	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
