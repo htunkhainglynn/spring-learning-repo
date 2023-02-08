@@ -1,0 +1,31 @@
+package com.jdc.test;
+
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.jdbc.core.ConnectionCallback;
+import org.springframework.jdbc.core.JdbcOperations;
+import org.springframework.jdbc.core.StatementCallback;
+import org.springframework.test.context.jdbc.Sql;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
+
+import com.jdc.demo.config.AppConfig;
+
+@SpringJUnitConfig(classes = AppConfig.class)
+@TestMethodOrder(OrderAnnotation.class)
+public class StatementTest2 {
+	
+	@Autowired
+	JdbcOperations jdbc;
+
+	@Test
+	@Sql(scripts = "/database.sql")
+	
+	void test1(@Value("${member.insert}") String sql) {
+		var result = jdbc.execute(sql, (PreparedStatement stmt)-> {
+			
+		});
+	}
+}

@@ -78,7 +78,7 @@ public class AppConfig {
 	
 	@Bean
 	@Qualifier("searchPKFactory")
-	public PreparedStatementCreatorFactory searchPKFactory(@Value("${member.serach.pk}") String sql) { 
+	public PreparedStatementCreatorFactory searchPKFactory(@Value("${member.search.pk}") String sql) { 
 		return new PreparedStatementCreatorFactory(sql, new int[] {
 				Types.VARCHAR  // you can insert integer like this {12, 12, 12, 12, 12} 12 represents VARCHAR
 		});

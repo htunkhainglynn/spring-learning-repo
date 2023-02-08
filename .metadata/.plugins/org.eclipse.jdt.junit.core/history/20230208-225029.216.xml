@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="StatementTest2" project="07-spring-jdbc" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="com.jdc.test.StatementTest2" time="0.246" displayname="StatementTest2" uniqueid="[engine:junit-jupiter]/[class:com.jdc.test.StatementTest2]">
+    <testcase name="test1" classname="com.jdc.test.StatementTest2" time="0.192" displayname="Execute with simple sql string" parameters="java.lang.String" uniqueid="[engine:junit-jupiter]/[class:com.jdc.test.StatementTest2]/[method:test1(java.lang.String)]"/>
+    <testcase name="test2" classname="com.jdc.test.StatementTest2" time="0.014" displayname="Update with PreparedStatementSetter" parameters="java.lang.String" uniqueid="[engine:junit-jupiter]/[class:com.jdc.test.StatementTest2]/[method:test2(java.lang.String)]"/>
+    <testcase name="test3" classname="com.jdc.test.StatementTest2" time="0.015" displayname="Update with just using parameters" parameters="java.lang.String" uniqueid="[engine:junit-jupiter]/[class:com.jdc.test.StatementTest2]/[method:test3(java.lang.String)]"/>
+    <testcase name="test4" classname="com.jdc.test.StatementTest2" time="0.025" displayname="Extract with PreparedStatementSetter" parameters="java.lang.String" uniqueid="[engine:junit-jupiter]/[class:com.jdc.test.StatementTest2]/[method:test4(java.lang.String)]"/>
+  </testsuite>
+</testrun>
