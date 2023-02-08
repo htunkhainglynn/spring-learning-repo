@@ -1,5 +1,7 @@
 package com.jdc.demo.config;
 
+import java.sql.Types;
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -16,6 +18,7 @@ import com.mysql.cj.jdbc.MysqlConnectionPoolDataSource;
 
 @Configuration
 @PropertySource("/database.properties")
+@PropertySource("/sql.properties")
 @ComponentScan("com.jdc.demo.dao")
 @ImportResource("context.xml")
 public class AppConfig {
@@ -54,8 +57,25 @@ public class AppConfig {
 	}
 	
 	@Bean
-	@Qualifier("pscFactory")
-	public PreparedStatementCreatorFactory pscFactory() {
-		return null;
+	@Qualifier("insertFactory")
+	public PreparedStatementCreatorFactory insertFactory(@Value("${member.insert}") String sql) {
+		return new PreparedStatementCreatorFactory(sql, new int[] {
+				Types.VARCHAR,  // you can insert integer like this {12, 12, 12, 12, 12} 12 represents VARCHAR
+				Types.VARCHAR,
+				Types.VARCHAR,
+				Types.VARCHAR,
+				Types.VARCHAR
+		});
 	}
+	
+	@Bean
+	@Qualifier("searchAdminFactory")
+	public PreparedStatementCreatorFactory searchAdminFactory(@Value("${member.search.admin}") String sql) { 
+		return new PreparedStatementCreatorFactory(sql, new int[] {
+				Types.VARCHAR // you can insert integer like this {12, 12, 12, 12, 12} 12 represents VARCHAR
+
+		});
+	}
+	
+	
 }

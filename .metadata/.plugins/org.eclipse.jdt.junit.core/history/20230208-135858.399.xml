@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="StatementTest" project="07-spring-jdbc" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.jdc.test.StatementTest" time="0.202" displayname="StatementTest" uniqueid="[engine:junit-jupiter]/[class:com.jdc.test.StatementTest]">
+    <testcase name="test" classname="com.jdc.test.StatementTest" time="0.202" displayname="test PreparedStatementCreator psc, PreparedStatementCallback&lt;T&gt; action" uniqueid="[engine:junit-jupiter]/[class:com.jdc.test.StatementTest]/[method:test()]"/>
+  </testsuite>
+</testrun>

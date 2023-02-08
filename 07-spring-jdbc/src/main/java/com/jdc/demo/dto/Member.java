@@ -5,7 +5,7 @@ public class Member {
 	String name;
 	String loginId;
 	String password;
-	int phone;
+	String phone;
 	String email;
 	
 	public String getName() {
@@ -26,10 +26,10 @@ public class Member {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 	public String getEmail() {
@@ -37,5 +37,10 @@ public class Member {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	public String toString() {
+		String result = "%s, %s, %s, %s, %s".formatted(loginId, name, password, phone, email);
+		return result;
 	}
 }

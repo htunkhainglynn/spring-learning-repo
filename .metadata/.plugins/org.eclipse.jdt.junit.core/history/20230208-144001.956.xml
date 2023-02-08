@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="MemberDaoTest" project="07-spring-jdbc" tests="7" started="7" failures="0" errors="0" ignored="0">
+  <testsuite name="com.jdc.test.MemberDaoTest" time="0.3" displayname="MemberDaoTest" uniqueid="[engine:junit-jupiter]/[class:com.jdc.test.MemberDaoTest]">
+    <testcase name="test" classname="com.jdc.test.MemberDaoTest" time="0.188" displayname="test()" uniqueid="[engine:junit-jupiter]/[class:com.jdc.test.MemberDaoTest]/[method:test()]"/>
+    <testcase name="testConn" classname="com.jdc.test.MemberDaoTest" time="0.032" displayname="testConn()" uniqueid="[engine:junit-jupiter]/[class:com.jdc.test.MemberDaoTest]/[method:testConn()]"/>
+    <testcase name="testStmt" classname="com.jdc.test.MemberDaoTest" time="0.012" displayname="testStmt()" uniqueid="[engine:junit-jupiter]/[class:com.jdc.test.MemberDaoTest]/[method:testStmt()]"/>
+    <testcase name="testStaticQueryResultSetExtractor" classname="com.jdc.test.MemberDaoTest" time="0.013" displayname="testStaticQueryResultSetExtractor()" uniqueid="[engine:junit-jupiter]/[class:com.jdc.test.MemberDaoTest]/[method:testStaticQueryResultSetExtractor()]"/>
+    <testcase name="testStaticQueryRowCallbackHandler" classname="com.jdc.test.MemberDaoTest" time="0.01" displayname="testStaticQueryRowCallbackHandler()" uniqueid="[engine:junit-jupiter]/[class:com.jdc.test.MemberDaoTest]/[method:testStaticQueryRowCallbackHandler()]"/>
+    <testcase name="testStaticQueryRowMapper" classname="com.jdc.test.MemberDaoTest" time="0.011" displayname="testStaticQueryRowMapper()" uniqueid="[engine:junit-jupiter]/[class:com.jdc.test.MemberDaoTest]/[method:testStaticQueryRowMapper()]"/>
+    <testcase name="testQueryForObject" classname="com.jdc.test.MemberDaoTest" time="0.031" displayname="testQueryForObject()" uniqueid="[engine:junit-jupiter]/[class:com.jdc.test.MemberDaoTest]/[method:testQueryForObject()]"/>
+  </testsuite>
+</testrun>
