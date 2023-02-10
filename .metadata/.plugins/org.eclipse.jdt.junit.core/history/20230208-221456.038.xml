@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="StatementTest2" project="07-spring-jdbc" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="com.jdc.test.StatementTest2" time="0.286" displayname="StatementTest2" uniqueid="[engine:junit-jupiter]/[class:com.jdc.test.StatementTest2]">
-    <testcase name="test1" classname="com.jdc.test.StatementTest2" time="0.286" displayname="Execute with simple sql string" parameters="java.lang.String" uniqueid="[engine:junit-jupiter]/[class:com.jdc.test.StatementTest2]/[method:test1(java.lang.String)]"/>
-  </testsuite>
-</testrun>

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="StatementTest" project="07-spring-jdbc" tests="2" started="2" failures="0" errors="0" ignored="0">
-  <testsuite name="com.jdc.test.StatementTest" time="0.252" displayname="StatementTest" uniqueid="[engine:junit-jupiter]/[class:com.jdc.test.StatementTest]">
-    <testcase name="test" classname="com.jdc.test.StatementTest" time="0.214" displayname="test PreparedStatementCreator psc, PreparedStatementCallback&lt;T&gt; action" parameters="java.lang.String" uniqueid="[engine:junit-jupiter]/[class:com.jdc.test.StatementTest]/[method:test(java.lang.String)]"/>
-    <testcase name="test1" classname="com.jdc.test.StatementTest" time="0.038" displayname="test PreparedStatementCreatorFactory(String sql, int... types)" parameters="org.springframework.jdbc.core.PreparedStatementCreatorFactory" uniqueid="[engine:junit-jupiter]/[class:com.jdc.test.StatementTest]/[method:test1(org.springframework.jdbc.core.PreparedStatementCreatorFactory)]"/>
-  </testsuite>
-</testrun>

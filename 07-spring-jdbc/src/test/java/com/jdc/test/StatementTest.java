@@ -29,7 +29,7 @@ import com.jdc.demo.dto.Member;
 public class StatementTest {
 	
 	@Autowired
-	JdbcOperations dbOperation;
+	JdbcOperations dbOperation;  // you can write JdbcTemplate, it implements JdbcOpertion
 	
 	@Autowired
 	MemberRowMap memberRowMap;
