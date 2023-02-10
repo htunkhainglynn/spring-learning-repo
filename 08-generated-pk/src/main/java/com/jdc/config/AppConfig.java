@@ -29,7 +29,7 @@ public class AppConfig {
 	}
 	
 	@Bean
-	public SimpleJdbcInsert categoryInsert(DataSource dataSource) {
+	public SimpleJdbcInsert categoryInsert(DataSource dataSource) {  // do not need sql.properties explicitly
 		var insert = new SimpleJdbcInsert(dataSource);
 		insert.setTableName("category");
 		insert.setGeneratedKeyNames("id");
