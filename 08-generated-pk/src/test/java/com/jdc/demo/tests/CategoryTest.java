@@ -23,10 +23,15 @@ public class CategoryTest {
 	void test1() {
 		Category c1 = new Category();
 		c1.setName("food");
-		Category c2 = new Category();
-		c2.setName("drink");
-		int gk = dao.create(c1);
-		int gk2 = dao.create(c2);
+//		Category c2 = new Category();
+//		c2.setName("drink");
+//		int gk = dao.create(c1);
+//		int gk2 = dao.create(c2);
+//		assertEquals(2, gk2);
+		Category c = new Category();
+		c.setName("Salad");
+		int gk = dao.create(c);
+		int gk2 = dao.create(c1);
 		assertEquals(2, gk2);
 	}
 }
