@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import com.jdc.config.AppConfig;
-import com.jdc.product.model.dao.CategoryDao;
+import com.jdc.product.model.dao.CategoryDao2;
 import com.jdc.product.model.dto.Category;
 
 @SpringJUnitConfig(classes = AppConfig.class)
@@ -21,7 +21,8 @@ import com.jdc.product.model.dto.Category;
 public class CategoryTest {
 	
 	@Autowired
-	private CategoryDao dao;
+//	private CategoryDao1 dao;
+	private CategoryDao2 dao;
 
 	@Test
 	@Order(1)
@@ -52,14 +53,14 @@ public class CategoryTest {
 	@DisplayName("3. Find by id")
 	void test3() {
 		Category c = dao.findById(1);
-		assertEquals("Drink", c.getName());
+		assertEquals("drink", c.getName());
 	}
 	
 	@Test
 	@Order(4)
 	@DisplayName("4. Find by Name Like")
 	void test4() {
-		List<Category> c = dao.findByName("Dri%");
+		List<Category> c = dao.findByName("Dri");
 		assertEquals(1, c.size());
 	}
 	
@@ -70,4 +71,13 @@ public class CategoryTest {
 		int count = dao.delete(1);
 		assertEquals(1, count);
 	}
+	
+	@Test
+	@Order(6)
+	@DisplayName("6. Find Name Count")
+	void test6() {
+		int count = dao.findCountByName("Drin");
+		assertEquals(1, count);
+	}
+	
 }

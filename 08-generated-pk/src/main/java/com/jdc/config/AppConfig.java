@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreatorFactory;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
@@ -44,6 +43,8 @@ public class AppConfig {
 		return insert;
 	}
 	
+	
+	// for CategoryDao.java
 	@Bean
 	@Qualifier("update")
 	public PreparedStatementCreatorFactory categoryUpdate(@Value("${update.category}") String sql) {
