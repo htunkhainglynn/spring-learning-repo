@@ -1,12 +1,18 @@
 package com.jdc.config;
 
+import java.sql.Types;
+
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreatorFactory;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
@@ -36,5 +42,23 @@ public class AppConfig {
 		insert.setTableName("category");
 		insert.setGeneratedKeyNames("id");
 		return insert;
+	}
+	
+	@Bean
+	@Qualifier("update")
+	public PreparedStatementCreatorFactory categoryUpdate(@Value("${update.category}") String sql) {
+		return new PreparedStatementCreatorFactory(sql, new int[] {
+				Types.VARCHAR,
+				Types.INTEGER
+		});
+	}
+
+	
+	@Bean
+	@Qualifier("delete")
+	public PreparedStatementCreatorFactory delete(@Value("${delete}") String sql) {
+		return new PreparedStatementCreatorFactory(sql, new int[] {
+				Types.INTEGER
+		});
 	}
 }
