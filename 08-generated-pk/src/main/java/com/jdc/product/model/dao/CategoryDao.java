@@ -12,6 +12,7 @@ import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.PreparedStatementCreatorFactory;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
+import org.springframework.stereotype.Component;
 //import org.springframework.beans.factory.annotation.Value;
 //import org.springframework.jdbc.core.JdbcOperations;
 //import org.springframework.jdbc.core.JdbcTemplate;
@@ -22,7 +23,7 @@ import org.springframework.stereotype.Service;
 
 import com.jdc.product.model.dto.Category;
 
-@Service
+//@Component
 public class CategoryDao {
 
 	@Autowired
