@@ -1,5 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy>
-    <typeInfo handle="=07-spring-jdbc/\/Users\/htunkhainglinn\/.m2\/repository\/org\/springframework\/spring-jdbc\/6.0.4\/spring-jdbc-6.0.4.jar=/maven.pomderived=/true=/=/maven.pomderived=/true=/=/maven.groupId=/org.springframework=/=/maven.artifactId=/spring-jdbc=/=/maven.version=/6.0.4=/=/maven.scope=/compile=/&lt;org.springframework.jdbc.core(JdbcTemplate.class[JdbcTemplate" modifiers="33" timestamp="1675611242000"/>
-    <typeInfo handle="=07-spring-jdbc/\/Users\/htunkhainglinn\/.m2\/repository\/org\/springframework\/spring-jdbc\/6.0.4\/spring-jdbc-6.0.4.jar=/maven.pomderived=/true=/=/maven.pomderived=/true=/=/maven.groupId=/org.springframework=/=/maven.artifactId=/spring-jdbc=/=/maven.version=/6.0.4=/=/maven.scope=/compile=/&lt;org.springframework.jdbc.core.namedparam(NamedParameterJdbcTemplate.class[NamedParameterJdbcTemplate" modifiers="33" timestamp="1675611242000"/>
-</typeInfoHistroy>
+<typeInfoHistroy/>

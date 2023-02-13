@@ -30,6 +30,8 @@ public class Product {
 	public void setPrice(int price) {
 		this.price = price;
 	}
+	
+	// breaking Single responsibility
 	public void setCategoryId(int id) {
 		if (category == null) {
 			category = new Category();
