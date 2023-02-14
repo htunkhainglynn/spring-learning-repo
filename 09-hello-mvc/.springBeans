@@ -7,7 +7,8 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>src/main/webapp/WEB-INF/hello-servlet.xml</config>
+		<config>src/main/webapp/WEB-INF/controller-config.xml</config>
+		<config>src/main/webapp/WEB-INF/root-config.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
