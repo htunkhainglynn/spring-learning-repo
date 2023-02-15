@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="com.jdc.demo.dao.MemberRowMap"/>
     <fullyQualifiedTypeName name="org.springframework.jdbc.core.ResultSetExtractor"/>
     <fullyQualifiedTypeName name="com.jdc.demo.dto.Member"/>
@@ -28,7 +27,6 @@
     <fullyQualifiedTypeName name="javax.management.Query"/>
     <fullyQualifiedTypeName name="org.springframework.jdbc.core.simple.SimpleJdbcInsert"/>
     <fullyQualifiedTypeName name="com.jdc.config.AppConfig"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="org.springframework.jdbc.support.GeneratedKeyHolder"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Value"/>
     <fullyQualifiedTypeName name="org.springframework.test.context.junit.jupiter.SpringJUnitConfig"/>
@@ -37,7 +35,6 @@
     <fullyQualifiedTypeName name="org.junit.jupiter.api.Test"/>
     <fullyQualifiedTypeName name="org.junit.jupiter.api.Order"/>
     <fullyQualifiedTypeName name="org.junit.jupiter.api.DisplayName"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="com.jdc.product.model.dao.CategoryDao2"/>
     <fullyQualifiedTypeName name="org.springframework.test.context.jdbc.Sql"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
@@ -60,4 +57,7 @@
     <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="com.jdc.hello.model.HelloService"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 </qualifiedTypeNameHistroy>
