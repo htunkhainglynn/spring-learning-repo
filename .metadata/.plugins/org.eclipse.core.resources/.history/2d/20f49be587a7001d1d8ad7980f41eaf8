@@ -1,2 +1,0 @@
-member.insert=insert into member values (?, ?, ?, ?, ?)
-member.search.admin=select * from member where name like %admin

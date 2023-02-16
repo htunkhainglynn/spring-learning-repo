@@ -1,1 +1,0 @@
-member.insert=insert into member values (?, ?, ?, ?, ?)
