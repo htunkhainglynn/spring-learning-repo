@@ -1,3 +1,0 @@
-member.insert=insert into member values (?, ?, ?, ?, ?)
-member.search.name=select * from member where password like ?
-member.serach.pk=select * from member where loginId = ?

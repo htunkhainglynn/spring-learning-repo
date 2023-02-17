@@ -29,7 +29,7 @@ public class MyAspect {
 	*/
 	
 	
-	@Before("CommonPointcuts.searchMethods() and CommonPointcuts.searchMembersOnly()")  //composing point cut references
+	@Before("CommonPointcuts.demoAnnotationClass()")  //composing point cut references
 	void beforeLog(JoinPoint joinPoint) {
 		System.out.println("before execution...");
 		System.out.println("---------------------------");

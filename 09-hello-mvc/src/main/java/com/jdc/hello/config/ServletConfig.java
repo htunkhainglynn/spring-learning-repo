@@ -21,7 +21,8 @@ public class ServletConfig implements WebMvcConfigurer {
 	
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
-		registry.addRedirectViewController("/", "/hello");
+//		registry.addRedirectViewController("/", "/hello"); // redirect the view file with model together
+		registry.addViewController("/").setViewName("index");  // just directly router to view file
 	}
 	
 	@Override

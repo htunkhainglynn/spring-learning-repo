@@ -20,6 +20,7 @@ public class ServiceTest {
 	@Test
 	void test() {
 		adminDao.searchAdmin();
+		adminDao.inertAdmin();
 		memberDao.searchMember();
 	}
 }

@@ -19,14 +19,15 @@
 	<section name="NewAnnotationWizardPage">
 		<item key="add_documented" value="false"/>
 		<section name="AddRetention">
-			<item key="enabled" value="false"/>
+			<item key="enabled" value="true"/>
 			<list key="selectedEnums">
-				<item value="CLASS"/>
+				<item value="RUNTIME"/>
 			</list>
 		</section>
 		<section name="AddTarget">
-			<item key="enabled" value="false"/>
+			<item key="enabled" value="true"/>
 			<list key="selectedEnums">
+				<item value="TYPE"/>
 			</list>
 		</section>
 	</section>

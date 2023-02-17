@@ -11,4 +11,8 @@ public class AdminDao {
 	public void searchAdmin() {
 		System.out.println("Searching admin");
 	}
+	
+	public void inertAdmin() {
+		System.out.println("admin insert");
+	}
 }
