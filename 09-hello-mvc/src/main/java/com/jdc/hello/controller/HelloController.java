@@ -15,7 +15,7 @@ public class HelloController {
 	@Autowired
 	HelloService service;
 	
-	@GetMapping
+	@GetMapping	
 	public String index(Model model) {
 		model.addAttribute("message", service.getMessage());
 		return "index";
