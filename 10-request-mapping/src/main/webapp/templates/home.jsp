@@ -9,5 +9,6 @@
 <body>
 	<h1>Hello Request Mapping</h1>
 	<a href="/multi">multi</a>
+	<a href="/inputs">inputs</a>
 </body>
 </html>

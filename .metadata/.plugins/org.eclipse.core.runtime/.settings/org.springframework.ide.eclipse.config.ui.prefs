@@ -1,3 +1,4 @@
+//com.springsource.config.ui.prefs.activePageIndex\:/06-spring-aop-pointcut-aspectj/src/main/resources/context.xml=<?xml version\="1.0" encoding\="UTF-8"?>\n<activePage index\="0"/>
 //com.springsource.config.ui.prefs.activePageIndex\:/07-spring-jdbc/src/main/resources/context.xml=<?xml version\="1.0" encoding\="UTF-8"?>\n<activePage index\="5"/>
 //com.springsource.config.ui.prefs.activePageIndex\:/08-generated-pk/src/main/resources/context.xml=<?xml version\="1.0" encoding\="UTF-8"?>\n<activePage index\="0"/>
 //com.springsource.config.ui.prefs.activePageIndex\:/09-hello-mvc/src/main/webapp/WEB-INF/controller-config.xml=<?xml version\="1.0" encoding\="UTF-8"?>\n<activePage index\="0"/>

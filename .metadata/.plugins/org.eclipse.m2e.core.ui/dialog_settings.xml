@@ -73,6 +73,7 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="10-request-mapping"/>
 			<item value="09-hello-mvc"/>
 			<item value="08-generated-pk"/>
 		</list>
@@ -85,8 +86,8 @@
 			<item value="[name]"/>
 		</list>
 		<list key="version">
-			<item value="0.0.1-SNAPSHOT"/>
 			<item value="1.0"/>
+			<item value="0.0.1-SNAPSHOT"/>
 		</list>
 	</section>
 	<section name="MavenCheckoutLocationPage">
