@@ -1,4 +1,4 @@
-use xml config so solve a problem that occurs when the code is combined again, 
-the server could not reload automatically. 
+use xml config, so can solve a problem : when the code is changed it needs to compile again, 
+then the server could not reload automatically. 
 Annotation based can't solve but xml base can.
-Now if i change something in my java file, it can compile automatically and reload the server.
+Now if i change something in my java file and compile again, then it can reload the server automatically.
