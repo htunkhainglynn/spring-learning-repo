@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +10,11 @@
 </head>
 <body>
 	<h1>Hello Request Mapping</h1>
-	<a href="/multi">multi</a>
-	<a href="/inputs">inputs</a>
+	<c:url value="/multi" var="mul"></c:url>
+	<a href="${ mul }">multi</a>
+	<c:url value="/inputs" var="in"></c:url>
+	<a href="${ in }">inputs</a>
+	<c:url value="/course" var="c"></c:url>
+	<a href="${ c }">course</a>
 </body>
 </html>
