@@ -2,9 +2,9 @@ package com.jdc.mapping.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.jdc.mapping.model.service.CourseService;
 
@@ -17,10 +17,8 @@ public class CourseController {
 	private CourseService service;
 
 	@GetMapping
-	public ModelAndView index() {
-		var modelView = new ModelAndView();
-		modelView.getModel().put("list", service.getAll());
-		modelView.setViewName("course");
-		return modelView;
+	public String index(Model model) {
+		model.addAttribute("lis", service.getAll());
+		return "course";
 	}
 }
