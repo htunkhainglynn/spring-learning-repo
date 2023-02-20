@@ -1,5 +1,3 @@
 com/jdc/mapping/controller/MultiController.class
-com/jdc/mapping/AppInitializer.class
-com/jdc/mapping/ServletConfig.class
 com/jdc/mapping/controller/InputController.class
 com/jdc/mapping/controller/WelcomeController.class

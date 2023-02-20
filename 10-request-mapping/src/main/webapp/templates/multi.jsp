@@ -21,7 +21,7 @@
 		 -->
 		<li>
 			<c:url value="/multi/action1" var="action1"></c:url>  
-			<a href="${action1}">Action 1</a>
+			<a href="${action1}">Action 1 that not work</a>
 		</li>
 		<li>
 			<c:url value="/multi/action1?id=10" var="action1"></c:url>
