@@ -21,4 +21,12 @@ public class CourseController {
 		model.addAttribute("lis", service.getAll());
 		return "course";
 	}
+	
+	/*
+	@GetMapping
+	public String index(ModelMap model) {
+		model.put("list", service.getAll());
+		return "course";
+	}
+	*/
 }
