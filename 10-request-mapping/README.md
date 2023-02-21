@@ -33,7 +33,7 @@ Because if we redirect a route it makes another request and addAttribute() has b
 		return "redirect:/course/detail?id=%d".formatted(id); // redirect a url
 	}
 ```
-In this code, the attribute "successfully created!" is added to model as value and its key is "result". Then another request comes in, 
+In this code, the attribute result object (Strings are ok too) is added to model as value and its key is "result". Then another request comes in, 
 
 ```
 @GetMapping("detail") 
@@ -43,11 +43,11 @@ In this code, the attribute "successfully created!" is added to model as value a
 		return "course-details";
 	}
 ```
-in the model, the attribute "result" : "successfully created!" is already there. when ``model.put("course", course);`` this line runs the model becomes 
+in the model, the attribute "result" : result object is already there. when ``model.put("course", course);`` this line runs the model becomes 
 
 
 | Key      | Value                   |
 | -------  | ----------------------- |
-| result   | successfully created!   |
+| result   | result object           |
 | course   | course object           |
 
