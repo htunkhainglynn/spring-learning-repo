@@ -57,8 +57,11 @@ public class CourseController {
 	
 	// about flashAttribute read in README
 	
-	// create comes in post route and find and show comes in get route so it can prevent double submits
-	
+	/*
+	 Suppose user makes a double submit and there is no redirect, if user refresh the page the request will send with post method again.
+	 So if we use redirect, the first time user submits, the in this page I create a course and id then i redirect it to another route implicitly.
+	 So if user makes another request, it has been redirected to this getMapping route and automatically prevents double submits problem.
+	*/
 	@GetMapping("detail") // catch url the way the url is directed
 	public String findById(@RequestParam int id, ModelMap model) {
 		var course = service.findById(id);
