@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jdc.mapping.model.dto.Course;
+import com.jdc.mapping.model.dto.Level;
 
 @Service
 public class CourseService {
@@ -26,10 +27,10 @@ public class CourseService {
 	// it is used to add default data when application is started.(application context)
 	@PostConstruct  
 	public void init() {
-		create(new Course("Java Basic", "Basic", 4, 200000));
-		create(new Course("JavaScript Basic", "Basic", 3, 250000));
-		create(new Course("Java Spring", "Advanced", 3, 300000));
-		create(new Course("React", "Advanced", 5, 280000));
+		create(new Course("Java Basic", Level.Basic, 4, 200000));
+		create(new Course("JavaScript Basic", Level.Intermediate, 3, 250000));
+		create(new Course("Java Spring", Level.Advanced, 3, 300000));
+		create(new Course("React", Level.Advanced, 5, 280000));
 	}
 	
 	public int create(Course c) {

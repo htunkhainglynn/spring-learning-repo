@@ -1,26 +1,21 @@
 package com.jdc.mapping.model.dto;
 
-import java.util.Objects;
-
 public class Course {
 
 	private int id;
 	private String name;
-	private String level;
+	private Level level;
 	private int duration;
 	private int fees;
-	
-	public Course() {
-		
-	}
-	
-	public Course(String name, String level, int duration, int fees) {
+
+	public Course(String name, Level level, int duration, int fees) {
+		super();
 		this.name = name;
 		this.level = level;
 		this.duration = duration;
 		this.fees = fees;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -37,11 +32,11 @@ public class Course {
 		this.name = name;
 	}
 
-	public String getLevel() {
+	public Level getLevel() {
 		return level;
 	}
 
-	public void setLevel(String level) {
+	public void setLevel(Level level) {
 		this.level = level;
 	}
 
@@ -61,22 +56,8 @@ public class Course {
 		this.fees = fees;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(duration, fees, id, level, name);
+	public Course() {
+
 	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Course other = (Course) obj;
-		return Objects.equals(duration, other.duration) && Objects.equals(fees, other.fees) && id == other.id
-				&& Objects.equals(level, other.level) && Objects.equals(name, other.name);
-	}
-	
-	
+
 }

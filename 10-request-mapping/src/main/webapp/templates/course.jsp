@@ -14,6 +14,11 @@
   <body>
     <div class="container pt-4">
     	<h1>Course List</h1>
+    	
+    	<div>
+    		<c:url value="/course/edit" var="courseEdit"></c:url>
+    		<a href="${ courseEdit }" class="btn btn-primary">Add New Course</a>
+    	</div>
   
 	    <div class="mt-4">
 	    	<table class="table">
@@ -30,7 +35,11 @@
 	    			<c:forEach var="c" items="${list}">
 	    				<tr>
 	    					<td>${c.id}</td>
-	    					<td>${c.name}</td>
+	    					<td>
+	    						<c:url value="/course/detail?id=${c.id}" var="defaultUrl"></c:url>
+	    						<a href="${ defaultUrl }">${c.name}</a>
+	    					
+	    					</td>
 	    					<td>${c.level}</td>
 	    					<td>${c.duration}</td>
 	    					<td>${c.fees}</td>
