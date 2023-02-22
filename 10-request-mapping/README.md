@@ -17,31 +17,31 @@ both are used for adding attributes within request after directing a route.
 Because if we redirect a route it makes another request and addAttribute() has been added to url and it only accepts String. So it is obvious why there is an error.
 
 
-### Bird eye view on how attributes are passed when there is an redirect
+### Bird eye view on how attributes are passed when there is a redirect
 ```
 @PostMapping 
-	public String save(
-			@RequestParam String name,
-			@RequestParam Level level,
-			@RequestParam int duration,
-			@RequestParam int fees,
-			RedirectAttributes redirect) {
-		var course = new Course(name, level, duration, fees);
-		var id = service.create(course);
-		redirect.addFlashAttribute("result", new Result(status.Success, "Successfully created!"));  // passing object
-		// redirect.addAttribute("result", new Result(status.Success, "Successfully created!"));  // will prompt error, can't convert object to String
-		return "redirect:/course/detail?id=%d".formatted(id); // redirect a url
-	}
+public String save(
+		@RequestParam String name,
+		@RequestParam Level level,
+		@RequestParam int duration,
+		@RequestParam int fees,
+		RedirectAttributes redirect) {
+	var course = new Course(name, level, duration, fees);
+	var id = service.create(course);
+	redirect.addFlashAttribute("result", new Result(status.Success, "Successfully created!"));  // passing object
+	// redirect.addAttribute("result", new Result(status.Success, "Successfully created!"));  // will prompt error, can't convert object to String
+	return "redirect:/course/detail?id=%d".formatted(id); // redirect a url
+}
 ```
 In this code, the attribute result object (Strings are ok too) is added to model as value and its key is "result". Then another request comes in, 
 
 ```
 @GetMapping("detail") 
-	public String findById(@RequestParam int id, ModelMap model) {
-		var course = service.findById(id);
-		model.put("course", course);
-		return "course-details";
-	}
+public String findById(@RequestParam int id, ModelMap model) {
+	var course = service.findById(id);
+	model.put("course", course);
+	return "course-details";
+}
 ```
 in the model, the attribute "result" : result object is already there. when ``model.put("course", course);`` this line runs the model becomes 
 
