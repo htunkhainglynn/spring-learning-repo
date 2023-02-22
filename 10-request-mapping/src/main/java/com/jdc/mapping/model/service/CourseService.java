@@ -1,51 +1,59 @@
 package com.jdc.mapping.model.service;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import javax.annotation.PostConstruct;
+import javax.swing.tree.RowMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Service;
 
 import com.jdc.mapping.model.dto.Course;
-import com.jdc.mapping.model.dto.Level;
 
 @Service
 public class CourseService {
-
-	@Autowired
-	CourseCodeGenerator generator;
 	
-	ArrayList<Course> repo;
+	@Autowired
+	private SimpleJdbcInsert jdbc;
+	
+	BeanPropertyRowMapper<Course> rowMapper;
 	
 	public CourseService() {
-		repo = new ArrayList<Course>();
+		rowMapper = new BeanPropertyRowMapper<Course>(Course.class);
 	}
 	
-	// it is post construct, so you can call create
-	// it is used to add default data when application is started.(application context)
-	@PostConstruct  
-	public void init() {
-		create(new Course("Java Basic", Level.Basic, 4, 200000));
-		create(new Course("JavaScript Basic", Level.Intermediate, 3, 250000));
-		create(new Course("Java Spring", Level.Advanced, 3, 300000));
-		create(new Course("React", Level.Advanced, 5, 280000));
-	}
 	
-	public int create(Course c) {
-		var id = generator.next();
-		c.setId(id);
-		repo.add(c);
-		return id;
-	}
+	@Value(value = "${course.select}")
+	String selectSql;
 	
+	@Value(value = "${course.select.all}")
+	String selectAllSql;
+	
+	/*
+	This does not need to give specific sql string. Just use jdbc.executeAndReturnKey(params).intValue() 
+	and it returns the id.
+	*/
+	public int create(Course c) {  
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("name", c.getName());
+		params.put("level", c.getLevel());
+		params.put("duration", c.getDuration());
+		params.put("fees", c.getFees());
+		return jdbc.executeAndReturnKey(params).intValue();
+	}
+
 	public Course findById(int id) {
-		return repo.stream().filter(c -> c.getId() == id )
-				.findAny().orElse(null);
+		Course course = jdbc.getJdbcTemplate().query(selectSql, rowMapper, id)
+													.stream().findAny().orElse(null);
+		return course;
 	}
-	
+
 	public List<Course> getAll() {
-		return List.copyOf(repo);
+		List<Course> list = jdbc.getJdbcTemplate().query(selectAllSql, rowMapper);
+		return list;
 	}
 }

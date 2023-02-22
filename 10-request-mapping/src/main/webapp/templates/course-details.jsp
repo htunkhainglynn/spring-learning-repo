@@ -19,9 +19,8 @@
 		<div class="row">
 		
 			<div class="col-4">
-			
-				<c:url value="/course" var="saveUrl"></c:url>
-				<form action="${saveUrl}" method="post">
+
+				<form action="#" method="get">
 					
 					<c:if test="${not empty result}">
 						<div class="alert alert-success" role="alert">${result.message}</div>
@@ -53,8 +52,15 @@
 						<label for="fees" class="form-label mb-1">Fees</label>
 						<input id="fees" name="fees"  type="number" value="${course.fees}" readonly="readonly" class="form-control"/>
 					</div>
-				
+					
 				</form>
+				
+				<div>
+					<a href="/course">
+						<input type="button" class="btn btn-success" value="Back to course"/>
+					</a>
+				</div>
+				
 			</div>
 		
 		</div>
