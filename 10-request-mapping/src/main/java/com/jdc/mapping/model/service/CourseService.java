@@ -44,9 +44,9 @@ public class CourseService {
 		return jdbc.executeAndReturnKey(params).intValue();
 	}
 
+	// queryForObject can't handle if there is null so use stream
 	public Course findById(int id) {
-		Course course = jdbc.getJdbcTemplate().query(selectSql, rowMapper, id)
-													.stream().findAny().orElse(null);
+		Course course = jdbc.getJdbcTemplate().query(selectSql, rowMapper, id).stream().findAny().orElse(null);
 		return course;
 	}
 
