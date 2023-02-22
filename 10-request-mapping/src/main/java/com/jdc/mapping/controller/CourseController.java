@@ -44,7 +44,7 @@ public class CourseController {
 	
 	@PostMapping // if post comes in, redirect to course
 	public String save(
-			@ModelAttribute Course course,
+			@ModelAttribute Course course,  // this can create course object automatically(cool)
 			RedirectAttributes redirect) {
 		var id = service.create(course);
 		redirect.addFlashAttribute("result", new Result(status.Success, "Successfully created!"));  // test with object
