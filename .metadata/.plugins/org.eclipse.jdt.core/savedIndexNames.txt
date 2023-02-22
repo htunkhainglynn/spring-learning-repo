@@ -13,7 +13,6 @@ INDEX VERSION 1.131+/Users/htunkhainglinn/Documents/spring-learning-repo/.metada
 2825555226.index
 4234050216.index
 782775986.index
-1581720072.index
 3100219586.index
 2664966453.index
 2368484028.index

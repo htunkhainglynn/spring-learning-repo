@@ -13832,3 +13832,13 @@ Caused by: java.lang.NoClassDefFoundError: Could not initialize class org.apache
 2023-02-22 15:56:40,368 [Worker-61: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
 2023-02-22 15:56:40,368 [Worker-61: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 2023-02-22 15:56:40,368 [Worker-61: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2023-02-22 19:29:19,613 [Worker-70: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2023-02-22 19:29:19,615 [Worker-70: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2023-02-22 19:29:19,616 [Worker-70: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2023-02-22 19:29:19,616 [Worker-70: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2023-02-22 19:29:26,105 [Worker-71: Launching 10-request-mapping] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/htunkhainglinn/Documents/spring-learning-repo/10-request-mapping
+2023-02-22 19:29:26,105 [Worker-71: Launching 10-request-mapping] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B jetty:run
+2023-02-22 19:39:23,538 [Worker-77: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2023-02-22 19:39:23,540 [Worker-77: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2023-02-22 19:39:23,540 [Worker-77: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2023-02-22 19:39:23,540 [Worker-77: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
