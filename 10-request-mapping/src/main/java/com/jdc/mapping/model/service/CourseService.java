@@ -38,7 +38,7 @@ public class CourseService {
 	public int create(Course c) {  
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("name", c.getName());
-		params.put("level", c.getLevel());
+		params.put("level", c.getLevel().name());
 		params.put("duration", c.getDuration());
 		params.put("fees", c.getFees());
 		return jdbc.executeAndReturnKey(params).intValue();
