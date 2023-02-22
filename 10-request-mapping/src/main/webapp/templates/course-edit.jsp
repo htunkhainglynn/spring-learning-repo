@@ -33,9 +33,9 @@
 						<label for="level" class="form-label mb-1">Level</label>
 						<select name="level" id="level" class="form-select" class="form-control">
 							<option disabled selected>Select one</option>
-							<option value="Basic">Basic</option>
-							<option value="Intermediate">Intermediate</option>
-							<option value="Advanced">Advanced</option>
+							<c:forEach items="${levels}" var="level">
+								<option value="${level}">${level}</option>
+							</c:forEach>
 						</select>
 					</div>
 						

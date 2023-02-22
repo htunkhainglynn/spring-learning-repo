@@ -38,7 +38,7 @@ public class CourseController {
 //	}
 	
 	@GetMapping("edit")
-	public String edit(Model model) {
+	public String edit() {
 		return "course-edit";
 	}
 	
@@ -65,4 +65,14 @@ public class CourseController {
 		model.put("course", course);
 		return "course-details";
 	}
+	
+	@ModelAttribute
+	public void loadLevels(ModelMap model) {
+		model.put("levels", Level.values());
+	}
+
+//	@ModelAttribute("levels")
+//	public Level[] loadLevels(ModelMap model) {
+//		return Level.values();
+//	}
 }

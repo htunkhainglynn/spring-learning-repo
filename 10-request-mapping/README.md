@@ -51,3 +51,63 @@ in the model, the attribute "result" : result object is already there. when ``mo
 | result   | result object           |
 | course   | course object           |
 
+
+### @ModelAttribute
+There is 3 ways to use @ModelAttribute
+
+1)Extract request parameters and create an object.
+Before @ModelAttribute
+
+```
+@PostMapping
+public String save(
+	@RequestParam String name,
+	@RequestParam Level level,
+	@RequestParam int duration,
+	@RequestParam int fees,
+	@ModelAttribute Course course,
+	RedirectAttributes redirect) {
+var course = new Course(name, level, duration, fees);
+var id = service.create(course);
+redirect.addFlashAttribute("result", new Result(status.Success, "Successfully created!"));
+```
+
+Using @ModelAttribute
+
+```
+@PostMapping 
+public String save(
+		@ModelAttribute Course course, 
+		RedirectAttributes redirect) {
+	var id = service.create(course);
+	redirect.addFlashAttribute("result", new Result(status.Success, "Successfully created!"));
+	return "redirect:/course/detail?id=%d".formatted(id);
+}
+```
+
+2) Its function is similar to aop. It is used when you want to add attribute before every methods of controller is called. When a method is put @ModelAttribute, if a method that handles a route is called, there is attributes in model which are added by the method that has been put @ModelAttribute.
+
+2 types of methods that can put @ModelAttribute
+
+1) void method
+
+```
+@ModelAttribute
+public void loadLevels(ModelMap model) {
+	model.put("levels", Level.values());
+}
+```
+
+2) with return type. It needs to add like this ``@ModelAttribute("levels")`` because in view file it needs to catch a variable, so this is how to set the variable name.
+
+```
+@ModelAttribute("levels")
+public Level[] loadLevels(ModelMap model) {
+	return Level.values();
+}
+```
+
+
+
+
+
