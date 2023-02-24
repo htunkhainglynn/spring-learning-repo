@@ -46,8 +46,14 @@ public class CourseController {
 	public String save(
 			@ModelAttribute Course course,  // this can create course object automatically(cool)
 			RedirectAttributes redirect) {
-		var id = service.create(course);
-		redirect.addFlashAttribute("result", new Result(status.Success, "Successfully created!"));  // test with object
+		var id = service.save(course);
+		
+		if (id == course.getId()) {
+			redirect.addFlashAttribute("result", new Result(status.Success, "Successfully updated!"));
+		}
+		else {
+			redirect.addFlashAttribute("result", new Result(status.Success, "Successfully created!"));  // test with object
+		}
 		// redirect.addAttribute("result", new Result(status.Success, "Successfully created!"));  // will prompt error, can't change object to String
 		return "redirect:/course/detail?id=%d".formatted(id); // redirect a url
 	}
@@ -75,4 +81,11 @@ public class CourseController {
 //	public Level[] loadLevels(ModelMap model) {
 //		return Level.values();
 //	}
+	
+	@ModelAttribute
+	public void loadCourse(@RequestParam(required = false) Integer id, ModelMap model) {
+		if (id != null) {  // if id is not null, load the model if null go default route
+			model.put("course", service.findById(id));
+		}
+	}
 }

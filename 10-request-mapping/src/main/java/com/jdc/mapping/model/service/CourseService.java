@@ -31,11 +31,20 @@ public class CourseService {
 	@Value(value = "${course.select.all}")
 	String selectAllSql;
 	
+	@Value(value = "${course.update}")
+	String updateSql;
 	/*
 	This does not need to give specific sql string. Just use jdbc.executeAndReturnKey(params).intValue() 
 	and it returns the id.
 	*/
-	public int create(Course c) {  
+	public int save(Course c) { 
+		
+		if(c.getId() > 0) {
+			jdbc.getJdbcTemplate().update(updateSql, 
+					c.getName(), c.getLevel().name(), c.getDuration(), c.getFees(), c.getId());
+			return c.getId();
+		}
+		
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("name", c.getName());
 		params.put("level", c.getLevel().name());
