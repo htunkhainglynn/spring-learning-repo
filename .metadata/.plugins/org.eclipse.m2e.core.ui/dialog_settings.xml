@@ -73,6 +73,9 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="12-spring-forms"/>
+			<item value="11-scope-demo"/>
+			<item value="11-demo-scope"/>
 			<item value="10-request-mapping"/>
 			<item value="09-hello-mvc"/>
 			<item value="08-generated-pk"/>
@@ -104,6 +107,7 @@
 	</section>
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="/Users/htunkhainglinn/Documents/spring-learning-repo/10-request-mapping"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
