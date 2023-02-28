@@ -63,7 +63,9 @@
 					<sf:label path="course">Select Course</sf:label>
 					<sf:select path="course" cssClass="form-select">
 						<sf:option value="" disabled="true">Select Course</sf:option>
-						<sf:options items="${courses}"/>
+						<%-- items="${courses}" itemLabel="name" = <option value="">${course.name}</option> --%>
+						<%-- itemValue="id" = <option value="${course.id}"></option> --%>
+						<sf:options items="${courses}" itemValue="id" itemLabel="name"/>  
 					</sf:select>
 				
 				</div>
@@ -134,6 +136,7 @@
 					<th>Phone</th>
 					<th>Email</th>
 					<th>Gender</th>
+					<th>Course</th>
 					<th>Registration</th>
 					<th>Remark</th>
 				</tr>
@@ -147,6 +150,7 @@
 						<td>${d.phone}</td>
 						<td>${d.email}</td>
 						<td>${d.gender}</td>
+						<td>${d.course.name}</td>
 						<td>${d.registration}</td>
 						<td>${d.remark}</td>
 					</tr>

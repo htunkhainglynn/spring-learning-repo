@@ -8,9 +8,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<mvc:annotation-driven></mvc:annotation-driven>
-	<context:component-scan base-package="com.jdc.form.controller"></context:component-scan>
-	<context:component-scan base-package="com.jdc.form.model"></context:component-scan>
-
+	<context:component-scan base-package="com.jdc.form.controller, com.jdc.form.converter"></context:component-scan>
 	<mvc:redirect-view-controller redirect-url="/form" path="/"/>
 	
 	<mvc:view-resolvers>

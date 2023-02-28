@@ -4,8 +4,9 @@
 	<artifactId>12-spring-forms</artifactId>
 	<version>1.0</version>
 	<packaging>war</packaging>
-	
+
 	<dependencies>
+
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>

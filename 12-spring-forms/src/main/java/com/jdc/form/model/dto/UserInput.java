@@ -1,4 +1,4 @@
-package com.jdc.form.model;
+package com.jdc.form.model.dto;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -13,7 +13,7 @@ public class UserInput {
 	private String phone;
 	private String email;
 	private String password;
-	private String course;
+	private CourseDto course;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate registration;
 	private Gender gender;
@@ -126,10 +126,10 @@ public class UserInput {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getCourse() {
+	public CourseDto getCourse() {
 		return course;
 	}
-	public void setCourse(String course) {
+	public void setCourse(CourseDto course) {
 		this.course = course;
 	}
 }
