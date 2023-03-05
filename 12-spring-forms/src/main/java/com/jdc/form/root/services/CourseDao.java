@@ -1,11 +1,11 @@
-package com.jdc.form.model.dao;
+package com.jdc.form.root.services;
 
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.web.context.annotation.ApplicationScope;
 
-import com.jdc.form.model.dto.CourseDto;
+import com.jdc.form.root.dto.CourseDto;
 
 @Repository
 @ApplicationScope

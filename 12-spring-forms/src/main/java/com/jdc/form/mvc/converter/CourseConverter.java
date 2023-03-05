@@ -1,12 +1,12 @@
-package com.jdc.form.converter;
+package com.jdc.form.mvc.converter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-import com.jdc.form.model.dao.CourseDao;
-import com.jdc.form.model.dto.CourseDto;
+import com.jdc.form.root.dto.CourseDto;
+import com.jdc.form.root.services.CourseDao;
 
 @Component
 public class CourseConverter implements Converter<String, CourseDto> {

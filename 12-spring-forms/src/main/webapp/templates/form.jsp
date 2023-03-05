@@ -30,6 +30,7 @@
 			
 					<sf:label path="name">Student Name</sf:label>
 					<sf:input path="name" cssClass="form-control" placeholder="Enter your name"/>
+					<sf:errors path="name" cssClass="text-danger"></sf:errors>
 			
 				</div>
 				
@@ -37,13 +38,15 @@
 				
 					<sf:label path="phone">Phone</sf:label>
 					<sf:input path="phone" cssClass="form-control" placeholder="Enter your number"/>
+					<sf:errors path="phone" cssClass="text-danger"></sf:errors>
 				
 				</div>
 				
 				<div class="col">
 				
-					<sf:label path="email">Student Name</sf:label>
+					<sf:label path="email">Email</sf:label>
 					<sf:input path="email" cssClass="form-control" placeholder="Enter your email"/>
+					<sf:errors path="email" cssClass="text-danger"></sf:errors>
 				
 				</div>
 			
@@ -55,6 +58,7 @@
 				
 					<sf:label path="password">Password</sf:label>
 					<sf:input path="password" cssClass="form-control" placeholder="Enter your password" type="password"/>
+					<sf:errors path="password" cssClass="text-danger"></sf:errors>
 				
 				</div>
 				
@@ -67,6 +71,7 @@
 						<%-- itemValue="id" = <option value="${course.id}"></option> --%>
 						<sf:options items="${courses}" itemValue="id" itemLabel="name"/>  
 					</sf:select>
+					<sf:errors path="course" cssClass="text-danger"></sf:errors>
 				
 				</div>
 				
@@ -77,7 +82,7 @@
 				
 				</div>
 			
-			</div>
+			</div>	
 			
 			<div class="row mt-4">
 			
@@ -90,7 +95,7 @@
 				
 				<div class="col">
 				
-					<sf:label path="knowledge">Select Course</sf:label>
+					<sf:label path="knowledge">Knowledge</sf:label>
 					<sf:checkboxes items="${knowledges}" path="knowledge"/>
 				
 				</div>
@@ -99,6 +104,7 @@
 				
 					<sf:label path="agree">Agree</sf:label>
 					<sf:checkbox path="agree" label="Yes I agree"/>
+					<sf:errors path="agree" cssClass="text-danger"></sf:errors>
 				
 				</div>
 			

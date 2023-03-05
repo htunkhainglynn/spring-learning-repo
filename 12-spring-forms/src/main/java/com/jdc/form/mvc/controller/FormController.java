@@ -1,10 +1,12 @@
-package com.jdc.form.controller;
+package com.jdc.form.mvc.controller;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.support.ConfigurableConversionService;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -12,13 +14,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.jdc.form.converter.CourseConverter;
-import com.jdc.form.converter.CourseFormatter;
-import com.jdc.form.model.dao.CourseDao;
-import com.jdc.form.model.dao.DataHolder;
-import com.jdc.form.model.dto.CourseDto;
-import com.jdc.form.model.dto.UserInput;
-import com.jdc.form.model.dto.UserInput.Gender;
+import com.jdc.form.mvc.converter.CourseConverter;
+import com.jdc.form.mvc.converter.CourseFormatter;
+import com.jdc.form.mvc.validator.UserInputValidator;
+import com.jdc.form.root.dto.CourseDto;
+import com.jdc.form.root.dto.UserInput;
+import com.jdc.form.root.dto.UserInput.Gender;
+import com.jdc.form.root.services.CourseDao;
+import com.jdc.form.root.services.DataHolder;
 
 @Controller
 @RequestMapping("form")
@@ -36,6 +39,9 @@ public class FormController {
 	@Autowired
 	CourseFormatter courseFormatter;
 	
+//	@Autowired
+//	UserInputValidator validator;  // if hibernate validation is used, we don't need it
+	
 	@GetMapping
 	String index() {
 		return "form";
@@ -47,15 +53,19 @@ public class FormController {
 //		if (binder.getConversionService() instanceof ConfigurableConversionService registry) {
 //			registry.addConverter(courseConverter);
 //		}
-//	}
+//	}	
 	
 	@InitBinder
 	void intiBinder(WebDataBinder binder) {
+//		binder.addValidators(validator);
 		binder.addCustomFormatter(courseFormatter);
 	}
 	
 	@PostMapping 
-	String redirect(@ModelAttribute("userInput") UserInput data) {
+	String redirect(@Validated @ModelAttribute("userInput") UserInput data, BindingResult result) {
+		if (result.hasErrors()) {
+			return "form";
+		}
 		repo.add(data);
 		return "redirect:/form";
 	}

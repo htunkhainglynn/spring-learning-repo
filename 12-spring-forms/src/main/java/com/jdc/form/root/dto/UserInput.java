@@ -1,23 +1,39 @@
-package com.jdc.form.model.dto;
+package com.jdc.form.root.dto;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
+
+import javax.validation.constraints.AssertTrue;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class UserInput {
 
 	private int id;
+	
+	@NotBlank(message = "Enter your name")
 	private String name;
+	@Pattern(regexp = "09-\\d{9}", message = "enter a valid number")
+	@NotBlank(message = "Enter your phone")
 	private String phone;
+	@Email(message = "Enter a valid email")
+	@NotBlank(message="Enter your email")
 	private String email;
+	@NotBlank(message= "Enter your password")
 	private String password;
+	@NotNull(message = "Please select one")
 	private CourseDto course;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate registration;
 	private Gender gender;
 	private List<String> knowledge;
+	
+	@AssertTrue(message = "You have to agree")
 	private boolean agree;
 	private String remark;
 	
