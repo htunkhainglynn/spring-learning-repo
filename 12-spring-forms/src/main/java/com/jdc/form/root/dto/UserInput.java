@@ -16,13 +16,13 @@ public class UserInput {
 
 	private int id;
 	
-	@NotBlank(message = "Enter your name")
+//	@NotBlank(message = "Enter your name")
 	private String name;
-	@Pattern(regexp = "09-\\d{9}", message = "enter a valid number")
-	@NotBlank(message = "Enter your phone")
+//	@Pattern(regexp = "09-\\d{9}")  // write in userInputValidation
+	@NotBlank(message = "{empty.phone}")
 	private String phone;
 	@Email(message = "Enter a valid email")
-	@NotBlank(message="Enter your email")
+	@NotBlank(message="{empty.email}")
 	private String email;
 	@NotBlank(message= "Enter your password")
 	private String password;

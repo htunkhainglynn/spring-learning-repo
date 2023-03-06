@@ -7,11 +7,22 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<mvc:annotation-driven></mvc:annotation-driven>
+	<!-- LOOK validator -->
+	<mvc:annotation-driven validator="validationAPI"></mvc:annotation-driven>
 	<context:component-scan base-package="com.jdc.form.mvc"></context:component-scan>
 	<mvc:redirect-view-controller redirect-url="/form" path="/"/>
 	
 	<mvc:view-resolvers>
 		<mvc:jsp prefix="/templates/" suffix=".jsp"/>
 	</mvc:view-resolvers>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="classpath:messages"></property>
+		<property name="defaultEncoding" value="UTF-8"></property>
+	</bean>
+	
+	<!-- without this, we need to build another file named validationMessages, with this we can handle all messages in one file -->
+	<bean id="validationAPI" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+		<property name="validationMessageSource" ref="messageSource"></property>
+	</bean>
 </beans>

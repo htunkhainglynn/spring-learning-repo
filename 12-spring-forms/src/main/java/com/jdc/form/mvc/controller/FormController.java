@@ -3,7 +3,7 @@ package com.jdc.form.mvc.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.convert.support.ConfigurableConversionService;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.jdc.form.mvc.converter.CourseConverter;
 import com.jdc.form.mvc.converter.CourseFormatter;
 import com.jdc.form.mvc.validator.UserInputValidator;
 import com.jdc.form.root.dto.CourseDto;
@@ -32,15 +31,15 @@ public class FormController {
 	
 	@Autowired
 	CourseDao courseRepo;
-	
+		
 //	@Autowired 
 //	CourseConverter courseConverter;
 	
 	@Autowired
 	CourseFormatter courseFormatter;
 	
-//	@Autowired
-//	UserInputValidator validator;  // if hibernate validation is used, we don't need it
+	@Autowired
+	UserInputValidator validator;  // if hibernate validation is used, we don't need it
 	
 	@GetMapping
 	String index() {
@@ -57,7 +56,7 @@ public class FormController {
 	
 	@InitBinder
 	void intiBinder(WebDataBinder binder) {
-//		binder.addValidators(validator);
+		binder.addValidators(validator);
 		binder.addCustomFormatter(courseFormatter);
 	}
 	

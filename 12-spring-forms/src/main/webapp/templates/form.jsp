@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="sp" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +21,7 @@
 <body>
 
 	<div class="container pt-4">
-		<h1>Hello Spring Form</h1>
+		<h1><sp:message code="app.title"></sp:message></h1>
 		
 		<sf:form modelAttribute="userInput">  <!-- default post -->
 		
