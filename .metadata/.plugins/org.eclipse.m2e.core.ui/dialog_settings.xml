@@ -73,6 +73,7 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="13-file-upload"/>
 			<item value="12-spring-forms"/>
 			<item value="11-scope-demo"/>
 			<item value="11-demo-scope"/>

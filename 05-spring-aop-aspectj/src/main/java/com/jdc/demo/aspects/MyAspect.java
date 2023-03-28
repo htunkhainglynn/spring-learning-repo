@@ -8,6 +8,7 @@ import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 //import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.context.annotation.Configuration;
 
@@ -17,18 +18,18 @@ import com.jdc.demo.dto.Register;
 @Configuration
 public class MyAspect {
 
-	
-//	@Pointcut("bean(myService)")
-//	void myServiceBean() {
-//		
-//	}
+	// using pointcut
+	@Pointcut("bean(myService) && execution(* hello(*, *))")
+	void myServiceBean() {
+		
+	}
 	
 //	@Before(value = "bean(myService) && args(str, a)", argNames = ("str, a"))
 //	void beforeLog(String name, int z) {
 //		System.out.println("Before Execution..." + name + z);
 //	}
 	
-	@Before(value = "bean(myService) && execution(* hello(*, *))")
+	@Before(value = "myServiceBean()")
 	void beforeLog(JoinPoint jointPoint) {
 		Object[] args = jointPoint.getArgs();
 		System.out.println("Before Execution..." + jointPoint + Arrays.toString(args));
@@ -44,7 +45,7 @@ public class MyAspect {
 	
 	@AfterThrowing(pointcut = "bean(myService) && execution(int divide(..)) && args(a, b)", 
 				   argNames = "ex, a, b",
-				   throwing = "ex")
+				   throwing = "ex") // a, b from argNames becomes after throw a, b it is ok they are not the same
 	void afterThrow(RuntimeException ex, int a, int b) {
 		System.out.println("After Throwing..." + a + b);
 		System.out.println(ex.getClass().getSimpleName());
